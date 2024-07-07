@@ -1,37 +1,105 @@
-# bot9Ai-assignment
+# Hotel Booking Chatbot
 
-## Project Description
+## Overview
 
-**bot9Ai-assignment** is a simplified hotel booking chatbot assignment project. The chatbot is built using Node.js and Express, with dependencies that facilitate API interactions, environment variable management, and more.
+This project implements a hotel booking chatbot using Express.js and OpenAI's API. The chatbot can handle natural language queries about hotel bookings, fetch room information, and simulate room bookings.
 
-- **node_modules/**: Contains all the npm packages installed.
-- **server/**: Contains server-side code for the chatbot.
-- **README.md**: This file, providing an overview of the project.
-- **package-lock.json**: Automatically generated file that describes the exact dependency tree.
-- **package.json**: Contains metadata about the project and its dependencies.
+## Features
 
-## Installation
+- RESTful API built with Express.js
+- Natural language processing using OpenAI's GPT model
+- Conversation history storage with SQLite and Sequelize
+- Function calling to simulate external API interactions for room data and bookings
+- Simple frontend interface for chatbot interaction
+- Basic error handling
 
-To set up the project locally, follow these steps:
+## Technical Stack
 
-1. **Clone the repository**:
-    ```sh
-    git clone <repository-url>
+- Backend: Node.js with Express.js
+- Database: SQLite with Sequelize ORM
+- NLP: OpenAI API
+- Frontend: HTML, CSS, JavaScript
+
+## Database Structure
+
+This project uses SQLite with Sequelize ORM to store conversation history and booking information. The database includes the following models:
+
+1. User
+   - userId (primary key): String
+   - fullName: String
+   - email: String
+   - lastInteraction: Date
+
+2. Conversation
+   - userId: String
+   - messages: Text (stores JSON stringified conversation history)
+
+3. Booking
+   - bookingId (primary key): String
+   - userId: String
+   - roomId: Integer
+   - checkInDate: Date
+   - checkOutDate: Date
+   - totalAmount: Float
+
+The database stores:
+- User information for each unique user interacting with the chatbot
+- Conversation history to maintain context across user sessions
+- Booking details for each successful room reservation
+
+
+## External API Simulation
+
+The project simulates external API calls for room data and bookings:
+
+1. Get rooms: `GET https://bot9assignement.deno.dev/rooms`
+2. Book room: `POST https://bot9assignement.deno.dev/book`
+
+
+Certainly. Here's an overall README.md file for your hotel booking chatbot project:
+markdownCopy# Hotel Booking Chatbot
+
+## Overview
+
+This project implements a hotel booking chatbot using Express.js and OpenAI's API. The chatbot can handle natural language queries about hotel bookings, fetch room information, and simulate room bookings.
+
+## Features
+
+- RESTful API built with Express.js
+- Natural language processing using OpenAI's GPT model
+- Conversation history storage with SQLite and Sequelize
+- Function calling to simulate external API interactions for room data and bookings
+- Simple frontend interface for chatbot interaction
+- Basic error handling
+
+## Technical Stack
+
+- Backend: Node.js with Express.js
+- Database: SQLite with Sequelize ORM
+- NLP: OpenAI API
+- Frontend: HTML, CSS, JavaScript
+
+## Setup
+
+1. Clone the repository:
     ```
-
-2. **Navigate to the project directory**:
-    ```sh
-    cd bot9Ai-assignment-main
+    git clone [repository-url]
+    cd hotel-booking-chatbot
     ```
-
-3. **Install the dependencies**:
-    ```sh
+    
+2. Install dependencies:
+    ```
     npm install
     ```
-
-## Usage
-
-To start the server, run the following command:
-
-```sh
-npm start
+    
+3. Set up environment variables:
+    Create a `.env` file in the root directory and add:
+    ```
+    OPEN_API_KEY=your_openai_api_key_here
+    PORT=3000
+    ```
+    
+4. Start the server:
+    ```
+    npm start
+    ```
