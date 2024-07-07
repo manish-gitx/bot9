@@ -1,6 +1,6 @@
-const{User,Conversation,Booking}=require('../bot9/db');
+const{User,Conversation,Booking}=require('./db');
 const OpenAI = require('openai');
-const{ getRooms,bookRoom}=require("../bot9/services")
+const{ getRooms,bookRoom}=require("./services")
 
 require("dotenv").config();
 

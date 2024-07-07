@@ -1,4 +1,4 @@
-const{User,Conversation,Booking}=require('../bot9/db');
+const{User,Conversation,Booking}=require('./db');
 const axios = require('axios');
 
 async function getRooms() {
