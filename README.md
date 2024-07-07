@@ -1,5 +1,7 @@
 # Hotel Booking Chatbot
 
+**Deployed Link:** [https://bot9-5hfw.onrender.com/](https://bot9-5hfw.onrender.com/)
+
 ## Overview
 
 This project implements a hotel booking chatbot using Express.js and OpenAI's API. The chatbot can handle natural language queries about hotel bookings, fetch room information, and simulate room bookings.
@@ -58,26 +60,6 @@ The project simulates external API calls for room data and bookings:
 
 Certainly. Here's an overall README.md file for your hotel booking chatbot project:
 markdownCopy# Hotel Booking Chatbot
-
-## Overview
-
-This project implements a hotel booking chatbot using Express.js and OpenAI's API. The chatbot can handle natural language queries about hotel bookings, fetch room information, and simulate room bookings.
-
-## Features
-
-- RESTful API built with Express.js
-- Natural language processing using OpenAI's GPT model
-- Conversation history storage with SQLite and Sequelize
-- Function calling to simulate external API interactions for room data and bookings
-- Simple frontend interface for chatbot interaction
-- Basic error handling
-
-## Technical Stack
-
-- Backend: Node.js with Express.js
-- Database: SQLite with Sequelize ORM
-- NLP: OpenAI API
-- Frontend: HTML, CSS, JavaScript
 
 ## Setup
 
