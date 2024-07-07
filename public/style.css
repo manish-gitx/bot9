@@ -62,7 +62,7 @@
     cursor: pointer;
   }
   #loader {
-  display: none; /* Hide by default */
+  display: none; 
   position: absolute;
   top: 50%;
   left: 50%;
