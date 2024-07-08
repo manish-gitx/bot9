@@ -1,6 +1,7 @@
 # Hotel Booking Chatbot
 
 **Deployed Link:** [https://bot9-5hfw.onrender.com/](https://bot9-5hfw.onrender.com/)
+**Preview Link:** [https://drive.google.com/drive/folders/1Mporz-wwMKHAia_fgpMT9K5c6VCZNYPP?usp=sharing]
 
 ## Overview
 
