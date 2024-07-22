@@ -26,6 +26,13 @@ const tools=[
     }
   }
 ]
+const SYSTEM_MESSAGE = `You are a hotel booking assistant chatbot. Key points:
+0. Pricing should be in Indian rupees.
+1. If asked "Who are you?", explain that you're a hotel booking assistant chatbot.
+2. Guide users through the booking process: greeting, showing rooms, asking for check-in date, nights of stay, calculating price, and confirming booking.
+3. When a booking is confirmed, provide the booking ID, check-in date, and check-out date to the user.
+4. You can communicate in any language the user prefers.
+`;
 
 const openai = new OpenAI({
     
@@ -53,13 +60,7 @@ async function chatService(req, res) {
     let messages = JSON.parse(conversation.messages);
     messages.push({ role: 'user', content: message });
   
-    const systemMessage = `You are a hotel booking assistant chatbot. Key points:
-    1. If asked "Who are you?", explain that you're a hotel booking assistant chatbot.
-    2. Guide users through the booking process: greeting, showing rooms, asking for check-in date, nights of stay, calculating price, and confirming booking.
-    3. When a booking is confirmed, provide the booking ID, check-in date, and check-out date to the user.
-    4. You can communicate in any language the user prefers.
-    5. Pricing should be in Indian rupees.
-    User details: ${JSON.stringify(user)}`;
+    const systemMessage = `${SYSTEM_MESSAGE}\nUser details: ${JSON.stringify(user)}`;
   
     try {
       const completion = await openai.chat.completions.create({
@@ -83,13 +84,8 @@ async function chatService(req, res) {
         if (functionName === 'get_rooms') {
           functionResult = await getRooms();
         } else if (functionName === 'book_room') {
-          functionResult = await bookRoom(
-            functionArgs.roomId,
-            functionArgs.fullName,
-            functionArgs.email,
-            functionArgs.nights,
-            functionArgs.checkInDate
-          );
+          const { roomId, fullName, email, nights, checkInDate } = functionArgs;
+          functionResult= await bookRoom(roomId, fullName, email, nights, checkInDate);
         }
   
         
