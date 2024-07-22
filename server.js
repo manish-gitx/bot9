@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const chatService = require('./chatService');
+const chatService = require('./backend/service/chatService');
 require('dotenv').config();
 
 const app = express();
