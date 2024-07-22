@@ -11,12 +11,12 @@ This project implements a hotel booking chatbot using Express.js and OpenAI's AP
 
 ## Features
 
-- RESTful API built with Express.js
-- Natural language processing using OpenAI's GPT model
-- Conversation history storage with SQLite and Sequelize
-- Function calling to simulate external API interactions for room data and bookings
-- Simple frontend interface for chatbot interaction
-- Basic error handling
+- **Conversation History Storage:** Utilizes SQLite and Sequelize to store conversation history.
+- **Booking Information Storage:** Stores check-in date, checkout date, price, booking ID, and username.
+- **Visual Appealing Frontend:** An intuitive and user-friendly interface for interacting with the chatbot.
+- **Email Notifications:** Uses Nodemailer to send booking confirmation emails.
+- **Basic Error Handling:** Ensures smooth operation and user experience.
+- **Function Calling with OpenAI:** Uses OpenAI's function calling feature to handle various hotel booking-related tasks.
 
 ## Technical Stack
 
